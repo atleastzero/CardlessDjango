@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +115,11 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Phone Number representation
+
+PHONENUMBER_DB_FORMAT = 'E164'
 
 
 # Static files (CSS, JavaScript, Images)
