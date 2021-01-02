@@ -1,3 +1,16 @@
-from django.shortcuts import render
+from django.views import generic
 
-# Create your views here.
+from .models import Card
+
+
+class IndexView(generic.ListView):
+    template_name = 'cards/index.html'
+    context_object_name = 'latest_cards'
+
+    def get_queryset(self):
+        return Card.objects.order_by('-pub_date')[:5]
+
+
+class CardView(generic.DetailView):
+    model = Card
+    template_name = 'cards/card.html'
